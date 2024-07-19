@@ -41,7 +41,7 @@ const Footer = () => {
 
             </div>
         </div>
-        <p class="text-white text-center pb-3 mt-5">&copy; Copyright 2021. All rights reserved.</p>
+        <p class="text-white text-center pb-3 mt-5">&copy; Copyright 2024. All rights reserved.</p>
     </section>
     </>
   )

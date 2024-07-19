@@ -9,6 +9,8 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import Information from './component/Information'
 import Testimonial from './component/Testimonial'
 import Footer from './component/Footer'
+import Login from './component/Login'
+import Signup from './component/Signup'
 
 function App() {
 
@@ -37,6 +39,14 @@ function App() {
     {
       path: "/contacts",
       element: <><Navbar/><Contacts/><Footer/></>
+    },
+    {
+      path: "/login",
+      element: <><Navbar/><Login/></>
+    },
+    {
+      path: "/signup",
+      element: <><Navbar/><Signup/></>
     }
   ])
 

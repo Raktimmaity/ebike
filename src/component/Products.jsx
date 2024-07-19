@@ -8,12 +8,12 @@ import shopping from '../assets/shopping rack.png'
 function Products() {
   return (
 <>
-     <section class="ml-0 pt-24">
+     <section class="ml-0 md:pt-24">
         <h1 class="md:text-center text-start text-3xl md:text-5xl font-extrabold text-zinc-800 p-3 md:p-5">Product Information</h1>
         <p class="md:text-center text-start text-lg p-3 md:p-5 pt-0">Our Scooter has following unique design and technology Features:</p>
         <div class="w-full flex flex-col md:flex-row justify-between items-center">
             <img className='w-1/2' src={productInfo} alt=""/>
-            <div class="pr-32 flex flex-col justify-center items-start gap-8">
+            <div class="pr-32 flex flex-col justify-center md:items-start gap-8">
                 <div class="w-full flex justify-center items-center gap-5">
                     <img src={icon} alt=""/>
                     <p class="text-zinc-700">Lightweight aircraft grade aluminium frame</p>
