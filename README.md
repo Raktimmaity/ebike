@@ -4,7 +4,9 @@
 
 - Interactive UI
 - Create using React JS + vite
+- Used Tailwind CSS
 - Used React Router
+- Fully Responsive
 
 
 ## Authors
@@ -14,8 +16,8 @@
 
 ## Screenshots
 
-![App Screenshot](./demo.png)
+![App Screenshot](./bike.png)
 
 
 ## Demo
-https://weather-app-raktimmaitys-projects.vercel.app/
+https://ebike-raktimmaitys-projects.vercel.app/
