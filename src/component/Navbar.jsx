@@ -21,12 +21,12 @@ function Navbar() {
             <li className="list-none p-2 bg-zinc-700 text-white w-20 rounded-lg shadow-xl font-bold hover:bg-white hover:text-zinc-700 hover:border hover:border-zinc-700 transition duration-150 ease-out hover:ease-in"><NavLink to="/signup">SIGN UP</NavLink></li>
         </div>
         </nav>
-        <div className="md:hidden fixed bottom-0 w-full flex justify-around bg-white p-2 z-50 text-zinc-700 hover:text-zinc-800 text-xl">
-          <NavLink className="flex flex-col justify-center items-center text-sm" to="/"><i class="fa-solid fa-house text-xl"></i>Home</NavLink>
-          <NavLink className="flex flex-col justify-center items-center text-sm" to="/products"><i class="fa-brands fa-product-hunt text-xl"></i>Products</NavLink>
-          <NavLink className="flex flex-col justify-center items-center text-sm" to="/gallery"><i class="fa-solid fa-images text-xl"></i>Gallery</NavLink>
-          <NavLink className="flex flex-col justify-center items-center text-sm" to="/contacts"><i class="fa-solid fa-envelope text-xl"></i>Contact</NavLink>
-          <NavLink className="flex flex-col justify-center items-center text-sm" to="/login"><i class="fa-solid fa-user text-xl"></i>Account</NavLink>
+        <div className="md:hidden fixed bottom-0 w-full flex justify-around bg-white z-50 text-zinc-700 hover:text-zinc-800 text-xl">
+          <NavLink className={(e)=>{return e.isActive? "bg-zinc-700 text-white p-2 rounded-lg":""}} to="/"><div className="flex flex-col justify-center items-center text-sm"><i class="fa-solid fa-house text-xl"></i>Home</div></NavLink>
+          <NavLink className={(e)=>{return e.isActive? "bg-zinc-700 text-white p-2 rounded-lg":""}} to="/products"><div className="flex flex-col justify-center items-center text-sm"><i class="fa-brands fa-product-hunt text-xl"></i>Products</div></NavLink>
+          <NavLink className={(e)=>{return e.isActive? "bg-zinc-700 text-white p-2 rounded-lg":""}} to="/gallery"><div className="flex flex-col justify-center items-center text-sm"><i class="fa-solid fa-images text-xl"></i>Gallery </div> </NavLink>
+          <NavLink className={(e)=>{return e.isActive? "bg-zinc-700 text-white p-2 rounded-lg":""}} to="/contacts"><div className="flex flex-col justify-center items-center text-sm"><i class="fa-solid fa-envelope text-xl"></i>Contact</div> </NavLink>
+          <NavLink className={(e)=>{return e.isActive? "bg-zinc-700 text-white p-2 rounded-lg":""}} to="/login"><div className="flex flex-col justify-center items-center text-sm"><i class="fa-solid fa-user text-xl"></i>Account</div> </NavLink>
         </div>
     </>
   )
