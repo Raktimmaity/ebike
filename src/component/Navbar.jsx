@@ -1,5 +1,4 @@
 import React from 'react'
-import logo from '../assets/logo.png'
 import { NavLink } from 'react-router-dom'
 
 function Navbar() {
@@ -7,7 +6,7 @@ function Navbar() {
     <>
     <nav className="z-40 bg-white fixed top-0 left-0 right-0 w[100%] h-auto pl-9 pt-3 pb-3 md:flex justify-between border-b-2 hidden">
         <div>
-            <img src={logo} alt="Logo" />
+            {/* <img src={logo} alt="Logo" /> */}
         </div>
         <ul className="w[50%] flex gap-10 justify-between pt-3 font-bold ">
             <li className="p-2 hover:bg-zinc-700 hover:text-white hover:rounded-lg hover:transition hover:duration-300"><NavLink className={(e)=>{return e.isActive? "black":""}} to="/">HOME</NavLink></li>

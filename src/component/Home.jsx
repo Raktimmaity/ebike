@@ -1,10 +1,21 @@
-import React from 'react'
+import React, {useState} from 'react'
 import headerPlay from '../assets/header play button.png'
 import headerImg from '../assets/header image.png'
 import one from '../assets/01.png'
 
 
 function Home() {
+
+    const [rotation, setRotation] = useState(0);
+
+    const handleRotateLeft = () => {
+        setRotation((prev) => prev - 45); // Rotate left by 45 degrees
+    };
+
+    const handleRotateRight = () => {
+        setRotation((prev) => prev + 45); // Rotate right by 45 degrees
+    };
+
   return (
     <>
       <main className="w-full flex justify-center md:justify-around md:p-3 md:mt-20 flex-col items-center md:flex-row">
@@ -24,21 +35,21 @@ function Home() {
                 </div>
             </div>
         </div>
-        <img src={headerImg} className="w-1/2 mt-5 md:mt-0" alt="bike-image"/>
+        <img src={headerImg} className="w-1/2 mt-5 md:mt-0" alt="bike-image" style={{ transform: `rotateY(${rotation}deg)` }}/>
     </main> 
     <div className="w-full flex justify-end pr-24">
-        <img src={one} alt="01" class="relative right-6"/>
+        <img src={one} alt="01" class="relative right-6" />
         <div className="flex justify-between items-center w-1/5">
-            <div className="flex w-full justify-center border rounded-l-full p-6 cursor-pointer hover:bg-zinc-700 hover:text-white transition duration-150 ease-out hover:ease-in">
-                <button className="">
+            <button onClick={handleRotateLeft} className="flex w-full justify-center border rounded-l-full p-6 cursor-pointer hover:bg-zinc-700 hover:text-white transition duration-150 ease-out hover:ease-in">
+                <button className="" onClick={handleRotateLeft}>
                     <i className="fa-solid fa-angle-left"></i>
                 </button>
-            </div>
-            <div className="flex w-full justify-center border rounded-r-full p-6 cursor-pointer hover:bg-zinc-700 hover:text-white transition duration-150 ease-out hover:ease-in">
-                <button class="">
+            </button>
+            <button onClick={handleRotateRight} className="flex w-full justify-center border rounded-r-full p-6 cursor-pointer hover:bg-zinc-700 hover:text-white transition duration-150 ease-out hover:ease-in">
+                <button class="" onClick={handleRotateRight}>
                     <i className="fa-solid fa-angle-right"></i>
                 </button>
-            </div>
+            </button>
         </div>
     </div>
     </>

@@ -15,10 +15,10 @@ function Signup() {
                 </div>
                 <form class="mt-5 w-[80%] lg:w-96 mx-auto space-y-4">
                     <h4 className="font-bold">Register your account</h4>
-                    <input type="text" class="border w-full px-4 py-2 outline-none" placeholder="Full Name"/>
-                    <input type="email" class="border w-full px-4 py-2 outline-none" placeholder="Email"/>
-                    <input type="password" class="border w-full px-4 py-2 outline-none" placeholder="Password"/>
-                    <input type="password" class="border w-full px-4 py-2 outline-none" placeholder="Confirm Password"/>
+                    <input type="text" class="border w-full px-4 py-2 outline-none" placeholder="Full Name" required/>
+                    <input type="email" class="border w-full px-4 py-2 outline-none" placeholder="Email" required/>
+                    <input type="password" class="border w-full px-4 py-2 outline-none" placeholder="Password" required/>
+                    <input type="password" class="border w-full px-4 py-2 outline-none" placeholder="Confirm Password" required/>
                     <button class="w-full mt-2 bg-zinc-700 py-2 rounded font-bold text-white hover:bg-zinc-800">
                         Register
                     </button>

@@ -11,9 +11,15 @@ import Testimonial from './component/Testimonial'
 import Footer from './component/Footer'
 import Login from './component/Login'
 import Signup from './component/Signup'
+import Cart from "./component/Cart";
 
 function App() {
+  const [cart, setCart] = useState([]);
 
+  const addToCart = (product) => {
+    setCart((prevCart) => [...prevCart, product]);
+    alert(`${product.title} has been added to the cart!`);
+  };
   const route = createBrowserRouter([
     {
       path: "/",
@@ -47,6 +53,10 @@ function App() {
     {
       path: "/signup",
       element: <><Navbar/><Signup/></>
+    },
+    {
+      path: "/cart",
+      element: <><Navbar/><Cart/></>
     }
   ])
 

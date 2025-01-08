@@ -15,8 +15,8 @@ function Login() {
                 </div>
                 <form class="mt-5 w-[80%] lg:w-96 mx-auto space-y-4">
                     <h4 className="font-bold">Login to manage your account</h4>
-                    <input type="email" class="border w-full px-4 py-2 outline-none" placeholder="Email"/>
-                    <input type="password" class="border w-full px-4 py-2 outline-none" placeholder="Password"/>
+                    <input type="email" class="border w-full px-4 py-2 outline-none" placeholder="Email" required/>
+                    <input type="password" class="border w-full px-4 py-2 outline-none" placeholder="Password" required/>
                     <div class="text-blue-600 hover:text-blue-400 cursor-pointer font-bold">
                         Forgot your password
                     </div>
