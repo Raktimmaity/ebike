@@ -18,7 +18,9 @@ function Login() {
                     <input type="email" class="border w-full px-4 py-2 outline-none" placeholder="Email" required/>
                     <input type="password" class="border w-full px-4 py-2 outline-none" placeholder="Password" required/>
                     <div class="text-blue-600 hover:text-blue-400 cursor-pointer font-bold">
-                        Forgot your password
+                        <NavLink to="/forgot-password">
+                            Forgot your password
+                        </NavLink>
                     </div>
                     <button class="w-full mt-2 bg-zinc-700 py-2 rounded font-bold text-white hover:bg-zinc-800">
                         Login

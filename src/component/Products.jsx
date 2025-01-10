@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Products() {
   const [ebikes, setEbikes] = useState([]);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
 
   useEffect(() => {
     const fetchEbikes = async () => {
@@ -51,11 +54,31 @@ function Products() {
     const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
     cartItems.push(bike);
     localStorage.setItem("cart", JSON.stringify(cartItems));
-    alert(`${bike.title} added to cart!`);
+
+    // Display styled toast notification
+    toast.success(`${bike.title} added to cart!`, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
+
+  const totalPages = Math.ceil(ebikes.length / itemsPerPage);
+
+  const paginatedItems = ebikes.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
   };
 
   return (
     <>
+      <ToastContainer />
       <section className="ml-0 md:pt-24">
         <h1 className="md:text-center text-start text-3xl md:text-5xl font-extrabold text-zinc-800 p-3 md:p-5">
           Products Page
@@ -79,7 +102,7 @@ function Products() {
             </div>
           ))
         ) : (
-          ebikes.map((bike) => (
+          paginatedItems.map((bike) => (
             <div
               key={bike.id}
               className="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg"
@@ -97,8 +120,8 @@ function Products() {
                 </div>
               </Link>
               <div className="mt-4 px-5 pb-5">
-              <Link to={`/product/${bike.id}`} state={{ bike }}>
-                <h5 className="font-bold text-xl tracking-tight text-slate-900">{bike.title}</h5>
+                <Link to={`/product/${bike.id}`} state={{ bike }}>
+                  <h5 className="font-bold text-xl tracking-tight text-slate-900">{bike.title}</h5>
                 </Link>
                 <div className="mt-2 mb-5 flex items-center justify-between">
                   <p>
@@ -119,6 +142,18 @@ function Products() {
             </div>
           ))
         )}
+      </div>
+      {/* Pagination */}
+      <div className="flex justify-center space-x-2 mt-5">
+        {Array.from({ length: totalPages }).map((_, index) => (
+          <button
+            key={index}
+            onClick={() => handlePageChange(index + 1)}
+            className={`px-4 py-2 border ${currentPage === index + 1 ? "bg-black text-white" : "bg-white text-black"} hover:bg-gray-200`}
+          >
+            {index + 1}
+          </button>
+        ))}
       </div>
     </>
   );

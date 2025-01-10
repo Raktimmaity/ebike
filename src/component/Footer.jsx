@@ -1,5 +1,6 @@
 import React from 'react'
 import scooter from '../assets/footer scooter.png'
+import { NavLink } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -12,7 +13,7 @@ const Footer = () => {
                     <h1 class="text-4xl font-bold">About</h1>
                     <ul class="leading-10 text-center">
                         <li><a href="#">Company</a></li>
-                        <li><a href="#">Teams</a></li>
+                        <li><NavLink to="/team">Teams</NavLink></li>
                         <li><a href="#">Profile</a></li>
                         <li><a href="#">Careers</a></li>
                     </ul>
@@ -28,8 +29,8 @@ const Footer = () => {
                 <div class="flex flex-col gap-8 justify-center items-center ">
                     <h1 class="text-4xl font-bold">Legals</h1>
                     <ul class="leading-10 text-center">
-                        <li><a href="#">Copyright Privacy</a></li>
-                        <li><a href="#">Policy Disclaimer</a></li>
+                        <li><NavLink to="/privacy-policy"> Copyright Privacy</NavLink></li>
+                        <li><NavLink to="/disclaimer">Policy Disclaimer</NavLink></li>
                         <li><a href="#">Terms</a></li>
                         <div class="flex gap-9 pt-5">
                             <i class="fa-brands fa-facebook"></i>

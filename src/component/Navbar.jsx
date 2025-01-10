@@ -25,10 +25,10 @@ function Navbar({ cartCount }) {
           </li>
         </ul>
         <div className="flex items-center gap-6 pr-3">
-          <li className="list-none shadow-xl p-2 rounded-lg font-bold hover:bg-zinc-700 hover:text-white transition duration-150 ease-out hover:ease-in">
+          <li className="list-none p-2 rounded-md font-bold hover:bg-zinc-700 hover:text-white transition duration-150 ease-out hover:ease-in">
             <NavLink to="/login">LOG IN</NavLink>
           </li>
-          <li className="list-none p-2 bg-zinc-700 text-white w-20 rounded-lg shadow-xl font-bold hover:bg-white hover:text-zinc-700 hover:border hover:border-zinc-700 transition duration-150 ease-out hover:ease-in">
+          <li className="list-none p-2 bg-zinc-700 text-white w-20 rounded-md font-bold hover:bg-white hover:text-zinc-700 hover:border hover:border-zinc-700 transition duration-150 ease-out hover:ease-in">
             <NavLink to="/signup">SIGN UP</NavLink>
           </li>
           <div className="relative text-center font-bold">
@@ -68,13 +68,13 @@ function Navbar({ cartCount }) {
         </NavLink>
         <NavLink className={(e) => (e.isActive ? "bg-zinc-700 text-white p-2 rounded-lg" : "")} to="/cart">
           <div className="flex flex-col justify-center items-center text-sm relative">
-            <FaShoppingCart />
+            {/* <FaShoppingCart className="fa-solid fa-envelope text-xl"/> */}
             {cartCount > 0 && (
               <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold text-white bg-red-600 rounded-full">
-                {cartCount}
+                {/* {cartCount} */}
               </span>
             )}
-            Cart
+            <i className="fa-solid fa-cart-shopping text-xl"></i>Cart
           </div>
         </NavLink>
       </div>

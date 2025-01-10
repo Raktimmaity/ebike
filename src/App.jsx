@@ -13,6 +13,11 @@ import Login from './component/Login';
 import Signup from './component/Signup';
 import Cart from "./component/Cart";
 import ProductDetails from './component/ProductDetails'; // Import the new ProductDetails component
+import FormatPassword from './component/FormatPassword';
+import PrivacyPolicy from './component/PrivacyPolicy';
+import PolicyDisclaimer from './component/PolicyDisclaimer';
+import TeamPage from './component/TeamPage';
+
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -30,7 +35,7 @@ function App() {
           <Navbar />
           <Home />
           <Information />
-          <Products addToCart={addToCart} />
+          {/* <Products addToCart={addToCart} /> */}
           <Gallery />
           <Testimonial />
           <Contacts />
@@ -106,6 +111,46 @@ function App() {
         </>
       ),
     },
+    {
+      path: "/forgot-password",
+      element: (
+        <>
+          <Navbar />
+          <FormatPassword />
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/privacy-policy",
+      element: (
+        <>
+          <Navbar />
+          <PrivacyPolicy />
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/disclaimer",
+      element: (
+        <>
+          <Navbar />
+          <PolicyDisclaimer />
+          <Footer />
+        </>
+      ),
+    },
+    {
+      path: "/team",
+      element: (
+        <>
+          <Navbar />
+          <TeamPage />
+          <Footer />
+        </>
+      ),
+    }
   ]);
 
   return (

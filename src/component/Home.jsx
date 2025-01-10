@@ -29,10 +29,10 @@ function Home() {
                     <button className="bg-zinc-700 w-1/4 p-2 text-white hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer">&rarr;</button>
                     <button className="w-[50%] font-bold text-sm ">Buy Now</button>
                 </div>
-                <div className="flex justify-center w-[100%]">
+                {/* <div className="flex justify-center w-[100%]">
                     <p className="w-1/2 text-zinc-700 font-bold">Watch our video how it works</p>
                     <img src={headerPlay} className='animate-bounce' alt="play-button"/>
-                </div>
+                </div> */}
             </div>
         </div>
         <img src={headerImg} className="w-1/2 mt-5 md:mt-0" alt="bike-image" style={{ transform: `rotateY(${rotation}deg)` }}/>
