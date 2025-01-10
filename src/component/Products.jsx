@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-function Products({ addToCart }) {
+function Products() {
   const [ebikes, setEbikes] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchEbikes = async () => {
@@ -46,6 +47,13 @@ function Products({ addToCart }) {
   const generateRandomActualPrice = (offerPrice) => offerPrice + Math.floor(Math.random() * (20000 - 5000 + 1)) + 5000;
   const calculateDiscountPercentage = (actualPrice, offerPrice) => Math.round(((actualPrice - offerPrice) / actualPrice) * 100);
 
+  const addToCart = (bike) => {
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    cartItems.push(bike);
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+    alert(`${bike.title} added to cart!`);
+  };
+
   return (
     <>
       <section className="ml-0 md:pt-24">
@@ -53,7 +61,7 @@ function Products({ addToCart }) {
           Products Page
         </h1>
         <p className="md:text-center text-start text-lg p-3 md:p-5 pt-0">
-          In this page you will found the electric bikes based on youur requirements
+          In this page you will find electric bikes based on your requirements
         </p>
       </section>
       <div className="flex flex-wrap justify-center items-center">
@@ -89,7 +97,9 @@ function Products({ addToCart }) {
                 </div>
               </Link>
               <div className="mt-4 px-5 pb-5">
+              <Link to={`/product/${bike.id}`} state={{ bike }}>
                 <h5 className="font-bold text-xl tracking-tight text-slate-900">{bike.title}</h5>
+                </Link>
                 <div className="mt-2 mb-5 flex items-center justify-between">
                   <p>
                     <span className="text-3xl font-bold text-slate-900">₹{bike.offerPrice}</span>
@@ -100,9 +110,9 @@ function Products({ addToCart }) {
                   onClick={() => addToCart(bike)}
                   className="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-      </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="mr-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
                   Add to Cart
                 </button>
               </div>
